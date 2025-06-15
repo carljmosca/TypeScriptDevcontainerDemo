@@ -1,0 +1,117 @@
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
+}
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  z-index: 2000;
+  padding-left: 0.5rem;
+}
+
+.app-title {
+  margin-left: 56px; /* Add left margin to clear the hamburger button */
+  font-size: 1.25rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 48px;
+  height: 48px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 2001;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  width: 32px;
+  background: #fff;           /* White lines for contrast */
+  margin: 5px 0;              /* Even vertical spacing */
+  border-radius: 2px;
+  transition: background 0.3s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0); /* Subtle shadow for visibility */
+}
+
+.hamburger:hover span {
+  background: #ffffff;        /* Highlight on hover */
+}
+.sidebar {
+  background: #222;
+  color: #fff;
+  min-width: 200px;
+  padding: 1rem;
+  transition: transform 0.3s;
+  margin-top: 56px;
+  height: calc(100vh - 56px);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 1rem 0;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  margin-top: 56px;
+}
+
+@media (max-width: 600px) {
+  .app-container {
+    flex-direction: column;
+  }
+  .sidebar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    height: calc(100vh - 56px);
+    min-width: 200px;
+    max-width: 80vw;
+    transform: translateX(-100%);
+    z-index: 1500;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+    margin-top: 0;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .main-content {
+    padding: 1rem;
+    margin-top: 56px;
+  }
+  .hamburger {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
