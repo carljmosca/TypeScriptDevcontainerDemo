@@ -21,7 +21,7 @@ npm install
 npm install react-router-dom
 ```
 
-Modify the vite.confit.ts to include a server section after the plugins section.
+Modify the vite.config.ts to include a server section after the plugins section.
 
 ```
   server: {
